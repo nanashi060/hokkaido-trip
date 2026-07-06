@@ -1,11 +1,16 @@
 import { CATEGORIES, categoryOf, esc, reveal } from "./common.js";
 
-export function renderSpotCards(state) {
+export function renderSpotCards(state, mapApi) {
   const grid = document.getElementById("spot-grid");
   const spots = state.spots;
 
   grid.innerHTML = spots.map(spot => renderCard(spot)).join("");
   reveal(grid.querySelectorAll(".spot-card"));
+
+  // 「旅マップで見る」→ 地図セクションへスクロールして該当ピンにズーム
+  grid.querySelectorAll("[data-fly-to]").forEach(a => {
+    a.addEventListener("click", () => mapApi?.focusSpot(a.dataset.flyTo));
+  });
 
   renderFilters(state, grid);
 }
@@ -48,6 +53,7 @@ function renderCard(spot) {
   ].join("");
 
   const links = [
+    `<a href="#map-section" data-fly-to="${esc(spot.id)}">旅マップで見る 🗾</a>`,
     spot.links?.official ? `<a href="${esc(spot.links.official)}" target="_blank" rel="noopener">公式サイト 🔗</a>` : "",
     `<a href="${gmap}" target="_blank" rel="noopener">地図アプリで開く 🧭</a>`
   ].join("");

@@ -25,8 +25,8 @@ async function init() {
 
   renderHero(state);
   renderTimeline(state, currentTripDay(state));
-  renderMap(state);
-  renderSpotCards(state);
+  const mapApi = renderMap(state);
+  renderSpotCards(state, mapApi);
 }
 
 // 旅行中なら今日が Day 何日目かを返す(旅行前後は null)
@@ -66,11 +66,16 @@ function renderHero(state) {
     const h = Math.floor(rest / 3600); rest %= 3600;
     const m = Math.floor(rest / 60);
     const s = rest % 60;
-    const box = (num, label) =>
-      `<div class="cd-box"><span class="cd-num">${num}</span><span class="cd-label">${label}</span></div>`;
+    const pad = n => String(n).padStart(2, "0");
+    const big = d > 0
+      ? `しゅっぱつまで あと <span class="cd-big-num">${d}</span> 日`
+      : `しゅっぱつまで あと <span class="cd-big-num">${h}</span> 時間`;
     el.innerHTML = `
-      ${box(d, "日")} ${box(h, "時間")} ${box(m, "分")} ${box(s, "秒")}
-      <div class="cd-box"><span class="cd-num">🛫</span><span class="cd-label">しゅっぱつまで</span></div>
+      <div class="cd-card">
+        <div class="cd-big">${big}</div>
+        <div class="cd-small">${pad(h)}時間 ${pad(m)}分 ${pad(s)}秒</div>
+        <div class="cd-copy">🌃 世界三大夜景と活イカが待ってるよ!</div>
+      </div>
     `;
     setTimeout(tick, 1000);
   }

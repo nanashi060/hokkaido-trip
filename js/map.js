@@ -17,8 +17,9 @@ export function renderMap(state) {
     }
   }
 
-  const dayLayers = new Map(); // day -> LayerGroup(ピン+ルート線)
-  const dayBounds = new Map(); // day -> LatLngBounds
+  const dayLayers = new Map();  // day -> LayerGroup(ピン+ルート線)
+  const dayBounds = new Map();  // day -> LatLngBounds
+  const markerById = new Map(); // spotId -> { marker, day }
 
   for (const day of state.trip.days) {
     const group = L.layerGroup();
@@ -40,13 +41,14 @@ export function renderMap(state) {
           iconAnchor: [17, 32],
           popupAnchor: [0, -30]
         });
-        L.marker([spot.lat, spot.lng], { icon })
+        const marker = L.marker([spot.lat, spot.lng], { icon })
           .bindPopup(`
             <div class="map-popup-name">${cat.icon} ${esc(spot.name)}</div>
             <div>${esc(spot.catchcopy)}</div>
             <a class="map-popup-link" href="#spot-${esc(spot.id)}">詳細を見る →</a>
           `)
           .addTo(group);
+        markerById.set(spot.id, { marker, day: day.day });
       }
     }
 
@@ -66,6 +68,19 @@ export function renderMap(state) {
   if (allBounds) map.fitBounds(allBounds, { padding: [40, 40] });
 
   renderFilters(state, map, dayLayers, dayBounds, allBounds);
+
+  // スポットカードから地図に飛ぶためのAPI
+  return {
+    focusSpot(spotId) {
+      const spot = state.spotById.get(spotId);
+      const entry = markerById.get(spotId);
+      if (!spot) return;
+      map.flyTo([spot.lat, spot.lng], 14, { duration: 1.1 });
+      if (entry && map.hasLayer(dayLayers.get(entry.day))) {
+        setTimeout(() => entry.marker.openPopup(), 1200);
+      }
+    }
+  };
 }
 
 function renderFilters(state, map, dayLayers, dayBounds, allBounds) {

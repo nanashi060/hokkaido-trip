@@ -9,8 +9,8 @@
   --ink-soft: #8A817A;
   --card: #FFFFFF;
   --line: #F0E6D8;
-  --accent: #FF6B6B;
-  --day-color: #FF6B6B;
+  --accent: #E63946;
+  --day-color: #E63946;
   --radius: 18px;
   --shadow: 0 4px 14px rgba(61, 58, 56, 0.08);
   --shadow-hover: 0 10px 24px rgba(61, 58, 56, 0.14);
@@ -78,8 +78,14 @@ body {
   background: linear-gradient(160deg, #FFE3E3 0%, #FFF3BF 45%, #D3F9D8 100%);
 }
 
+.hero-eyebrow, .hero-title, .hero-sub, .hero-dates, .countdown {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-floaters span {
   position: absolute;
+  z-index: 0;
   top: 100%;
   left: var(--x);
   font-size: 1.8rem;
@@ -131,24 +137,39 @@ body {
   flex-wrap: wrap;
 }
 
-.cd-box {
+.cd-card {
   background: #fff;
-  border-radius: 14px;
+  border-radius: 22px;
   box-shadow: var(--shadow);
-  padding: 10px 14px;
-  min-width: 72px;
+  padding: 20px 34px 18px;
 }
 
-.cd-num {
-  display: block;
-  font-size: 1.9rem;
+.cd-big { font-weight: 800; font-size: 1.15rem; }
+
+.cd-big-num {
+  font-size: 3.6rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
+  display: inline-block;
+  margin: 0 4px;
 }
 
-.cd-label { font-size: 0.72rem; font-weight: 700; color: var(--ink-soft); }
+.cd-small {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.cd-copy {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent);
+}
 
 .cd-message {
   background: #fff;
@@ -385,6 +406,15 @@ body {
 
 .map-pin span { transform: rotate(45deg); font-size: 0.95rem; }
 
+/* ルート点線がゆっくり流れる演出 */
+.leaflet-overlay-pane path {
+  animation: route-dash 1.6s linear infinite;
+}
+
+@keyframes route-dash {
+  to { stroke-dashoffset: -18; }
+}
+
 .leaflet-popup-content-wrapper { border-radius: 14px; font-family: var(--font); }
 
 .map-popup-name { font-weight: 800; }
@@ -483,6 +513,15 @@ body {
   padding: 48px 20px 56px;
   font-weight: 700;
   color: var(--ink-soft);
+}
+
+/* アニメーションを控えたい設定のユーザーには止める */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ---------- スマホ調整 ---------- */
