@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>北海道旅行 2026 🗺️</title>
+  <meta name="description" content="函館・小樽・札幌をめぐる4泊5日のふたり旅のしおり">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="#top">🗺️ 北海道旅行 2026</a>
+    <div class="nav-links">
+      <a href="#timeline">📅 スケジュール</a>
+      <a href="#map-section">🗾 マップ</a>
+      <a href="#spots">📍 スポット</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-floaters" aria-hidden="true">
+      <span style="--d:0s;   --x:8%;">✈️</span>
+      <span style="--d:2.5s; --x:28%;">🦑</span>
+      <span style="--d:1.2s; --x:48%;">🍦</span>
+      <span style="--d:3.8s; --x:68%;">⛰️</span>
+      <span style="--d:0.8s; --x:86%;">🍺</span>
+    </div>
+    <p class="hero-eyebrow">ふたりの旅のしおり</p>
+    <h1 class="hero-title" id="hero-title">北海道旅行 2026</h1>
+    <p class="hero-sub" id="hero-sub"></p>
+    <p class="hero-dates" id="hero-dates"></p>
+    <div class="countdown" id="countdown"></div>
+  </header>
+
+  <main>
+    <section class="section" id="timeline">
+      <h2 class="section-title">📅 旅のスケジュール</h2>
+      <div class="day-tabs" id="day-tabs" role="tablist"></div>
+      <div class="day-header" id="day-header"></div>
+      <div class="timeline-body" id="timeline-body"></div>
+    </section>
+
+    <section class="section" id="map-section">
+      <h2 class="section-title">🗾 旅のマップ</h2>
+      <div class="map-filters" id="map-filters"></div>
+      <div id="map"></div>
+    </section>
+
+    <section class="section" id="spots">
+      <h2 class="section-title">📍 スポット図鑑</h2>
+      <div class="spot-filters" id="spot-filters"></div>
+      <div class="spot-grid" id="spot-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>🧳 いってらっしゃい!すてきな旅になりますように 🌈</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

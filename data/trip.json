@@ -1,0 +1,48 @@
+{
+  "title": "北海道旅行 2026",
+  "subtitle": "函館・小樽・札幌をめぐる 4泊5日のふたり旅",
+  "startDate": "2026-07-13",
+  "endDate": "2026-07-17",
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-07-13",
+      "area": "函館",
+      "theme": "#FF6B6B",
+      "title": "函館到着!坂の街さんぽと世界三大夜景",
+      "tentative": false
+    },
+    {
+      "day": 2,
+      "date": "2026-07-14",
+      "area": "函館 → 小樽",
+      "theme": "#FFA94D",
+      "title": "レンタカーで小樽へ!グルメドライブの旅",
+      "tentative": false
+    },
+    {
+      "day": 3,
+      "date": "2026-07-15",
+      "area": "小樽・札幌(仮)",
+      "theme": "#4DABF7",
+      "title": "計画中",
+      "tentative": true
+    },
+    {
+      "day": 4,
+      "date": "2026-07-16",
+      "area": "札幌(仮)",
+      "theme": "#51CF66",
+      "title": "計画中",
+      "tentative": true
+    },
+    {
+      "day": 5,
+      "date": "2026-07-17",
+      "area": "札幌 → 帰路(仮)",
+      "theme": "#9775FA",
+      "title": "計画中",
+      "tentative": true
+    }
+  ]
+}

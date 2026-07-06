@@ -1,0 +1,57 @@
+{
+  "schedule": [
+    {
+      "day": 1,
+      "items": [
+        { "time": "8:30", "type": "move", "method": "✈️ 飛行機", "duration": "1時間40分", "note": "成田空港 → 函館空港" },
+        { "time": "10:50", "spotId": "century-marina", "label": "ホテルに荷物預け", "note": "身軽になって函館の街へ!" },
+        { "time": "11:15", "spotId": "lucky-pierrot", "note": "函館に来たらまずはコレ!" },
+        { "time": "12:00", "spotId": "motomachi", "note": "いろは・チャイカ・日和館などをのんびり巡る" },
+        { "time": "16:30", "spotId": "teashop-yuhi", "note": "海を眺めてひとやすみ" },
+        { "time": "18:30", "spotId": "mt-hakodate", "note": "夕暮れ→夜景のグラデーションを狙う" },
+        { "time": "20:00", "spotId": "ikasei-daimon", "note": "夜ごはん候補。⚠️ 予約したい!" },
+        { "time": "22:00", "spotId": "century-marina", "label": "ホテルに帰着", "note": "最上階の温泉で1日の疲れを癒す♨️" }
+      ]
+    },
+    {
+      "day": 2,
+      "items": [
+        { "time": "7:30", "spotId": "century-marina", "label": "朝食ビュッフェ", "note": "名物の豪華朝食を満喫(〜8:45)" },
+        { "time": "9:30", "spotId": "century-marina", "label": "チェックアウト", "note": "レンタカー10:30受け取りに合わせて余裕を持って出発" },
+        { "time": "9:35", "type": "move", "method": "🚕 タクシー", "duration": "約35分", "note": "ホテル → 函館空港" },
+        { "time": "10:30", "spotId": "hakodate-airport", "label": "レンタカー受け取り", "note": "函館空港店にて(〜10:50)" },
+        { "time": "10:50", "type": "move", "method": "🚗 レンタカー", "duration": "約40分", "note": "函館空港 → 大沼へ出発!" },
+        { "time": "11:30", "spotId": "onuma-park", "note": "軽くお散歩&写真タイム(〜12:10)" },
+        { "time": "12:10", "type": "move", "method": "🚗 レンタカー", "duration": "約70分", "note": "大沼 → 長万部" },
+        { "time": "13:20", "spotId": "kanaya", "note": "名物かにめしでお昼ごはん(〜14:10)" },
+        { "time": "14:10", "type": "move", "method": "🚗 レンタカー", "duration": "約85分", "note": "長万部 → ニセコ" },
+        { "time": "15:35", "spotId": "niseko-view-plaza", "note": "ソフトクリーム&お土産。⏰ 16:05までに出発!" },
+        { "time": "16:05", "type": "move", "method": "🚗 レンタカー", "duration": "約100分", "note": "ニセコ → 小樽(ISO予約に間に合わせる)" },
+        { "time": "17:45", "spotId": "unwind-otaru", "label": "チェックイン", "note": "ひと休みして夜の小樽へ(〜18:10)" },
+        { "time": "18:30", "spotId": "iso", "note": "✅ カウンター予約済み!今夜のメインイベント" },
+        { "time": "20:10", "spotId": "otaru-beer", "note": "できたてクラフトビールで乾杯(〜21:00)" },
+        { "time": "21:00", "spotId": "otaru-canal", "note": "夜の運河をホテルまでおさんぽ(〜21:30)" },
+        { "time": "21:30", "spotId": "unwind-otaru", "label": "ホテルに帰着", "note": "朝食つき。おやすみなさい🌙" }
+      ]
+    },
+    {
+      "day": 3,
+      "items": [
+        { "time": "8:00", "spotId": "unwind-otaru", "label": "ホテルで朝食", "note": "朝食つき" },
+        { "type": "tbd", "note": "ここから先は計画中 🚧 小樽・札幌の予定を追加しよう!" }
+      ]
+    },
+    {
+      "day": 4,
+      "items": [
+        { "type": "tbd", "note": "計画中 🚧 札幌の予定を追加しよう!" }
+      ]
+    },
+    {
+      "day": 5,
+      "items": [
+        { "type": "tbd", "note": "計画中 🚧 帰りの便に合わせて最終日の予定を決めよう!" }
+      ]
+    }
+  ]
+}
