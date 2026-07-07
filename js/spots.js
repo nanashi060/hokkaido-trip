@@ -43,9 +43,12 @@ function renderFilters(state, grid) {
 function renderCard(spot) {
   const cat = categoryOf(spot);
   const gmap = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name + " " + spot.area)}`;
+  const credit = spot.photoCredit?.author && spot.photoCredit?.license && spot.photoCredit?.url
+    ? `<a class="spot-credit" href="${esc(spot.photoCredit.url)}" target="_blank" rel="noopener">&copy; ${esc(spot.photoCredit.author)} / ${esc(spot.photoCredit.license)}</a>`
+    : "";
 
   const photo = spot.photo
-    ? `<div class="spot-photo"><img src="${esc(spot.photo)}" alt="${esc(spot.name)}" loading="lazy"></div>`
+    ? `<div class="spot-photo"><img src="${esc(spot.photo)}" alt="${esc(spot.name)}" loading="lazy">${credit}</div>`
     : `<div class="spot-photo" style="--photo-bg:${cat.bg}; color:${cat.color}">${icon(cat.icon)}</div>`;
 
   const meta = [
