@@ -1,4 +1,5 @@
 import { categoryOf, esc } from "./common.js";
+import { icon } from "./icons.js";
 
 export function renderMap(state) {
   const map = L.map("map", { scrollWheelZoom: false });
@@ -34,16 +35,16 @@ export function renderMap(state) {
       if (spotFirstDay.get(spot.id) === day.day && !group._pinIds?.has(spot.id)) {
         (group._pinIds ??= new Set()).add(spot.id);
         const cat = categoryOf(spot);
-        const icon = L.divIcon({
+        const pinIcon = L.divIcon({
           className: "",
-          html: `<div class="map-pin" style="--pin-color:${esc(day.theme)}"><span>${cat.icon}</span></div>`,
+          html: `<div class="map-pin" style="--pin-color:${esc(day.theme)}"><span>${icon(cat.icon)}</span></div>`,
           iconSize: [34, 34],
           iconAnchor: [17, 32],
           popupAnchor: [0, -30]
         });
-        const marker = L.marker([spot.lat, spot.lng], { icon })
+        const marker = L.marker([spot.lat, spot.lng], { icon: pinIcon })
           .bindPopup(`
-            <div class="map-popup-name">${cat.icon} ${esc(spot.name)}</div>
+            <div class="map-popup-name">${icon(cat.icon)} ${esc(spot.name)}</div>
             <div>${esc(spot.catchcopy)}</div>
             <a class="map-popup-link" href="#spot-${esc(spot.id)}">詳細を見る →</a>
           `)

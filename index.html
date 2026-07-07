@@ -16,21 +16,21 @@
 <body>
 
   <nav class="site-nav">
-    <a class="nav-logo" href="#top">🗺️ 北海道旅行 2026</a>
+    <a class="nav-logo" href="#top"><span data-icon="map"></span> 北海道旅行 2026</a>
     <div class="nav-links">
-      <a href="#timeline">📅 スケジュール</a>
-      <a href="#map-section">🗾 マップ</a>
-      <a href="#spots">📍 スポット</a>
+      <a href="#timeline"><span data-icon="calendar-days"></span> スケジュール</a>
+      <a href="#map-section"><span data-icon="map"></span> マップ</a>
+      <a href="#spots"><span data-icon="map-pin"></span> スポット</a>
     </div>
   </nav>
 
   <header class="hero" id="top">
     <div class="hero-floaters" aria-hidden="true">
-      <span style="--d:0s;   --x:8%;">✈️</span>
-      <span style="--d:2.5s; --x:28%;">🦑</span>
-      <span style="--d:1.2s; --x:48%;">🍦</span>
-      <span style="--d:3.8s; --x:68%;">⛰️</span>
-      <span style="--d:0.8s; --x:86%;">🍺</span>
+      <span style="--d:0s;   --x:8%;  color:#457B9D" data-icon="plane"></span>
+      <span style="--d:2.5s; --x:28%; color:#E63946" data-icon="camera"></span>
+      <span style="--d:1.2s; --x:48%; color:#F08C00" data-icon="ice-cream-cone"></span>
+      <span style="--d:3.8s; --x:68%; color:#2A9D8F" data-icon="mountain-snow"></span>
+      <span style="--d:0.8s; --x:86%; color:#9775FA" data-icon="beer"></span>
     </div>
     <p class="hero-eyebrow">ふたりの旅のしおり</p>
     <h1 class="hero-title" id="hero-title">北海道旅行 2026</h1>
@@ -41,27 +41,27 @@
 
   <main>
     <section class="section" id="timeline">
-      <h2 class="section-title">📅 旅のスケジュール</h2>
+      <h2 class="section-title"><span data-icon="calendar-days"></span> 旅のスケジュール</h2>
       <div class="day-tabs" id="day-tabs" role="tablist"></div>
       <div class="day-header" id="day-header"></div>
       <div class="timeline-body" id="timeline-body"></div>
     </section>
 
     <section class="section" id="map-section">
-      <h2 class="section-title">🗾 旅のマップ</h2>
+      <h2 class="section-title"><span data-icon="map"></span> 旅のマップ</h2>
       <div class="map-filters" id="map-filters"></div>
       <div id="map"></div>
     </section>
 
     <section class="section" id="spots">
-      <h2 class="section-title">📍 スポット図鑑</h2>
+      <h2 class="section-title"><span data-icon="map-pin"></span> スポット図鑑</h2>
       <div class="spot-filters" id="spot-filters"></div>
       <div class="spot-grid" id="spot-grid"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>🧳 いってらっしゃい!すてきな旅になりますように 🌈</p>
+    <p><span data-icon="luggage"></span> いってらっしゃい!すてきな旅になりますように <span data-icon="heart"></span></p>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

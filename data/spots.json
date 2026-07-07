@@ -26,7 +26,9 @@
       "hours": "チェックイン 15:00 / チェックアウト 11:00",
       "budget": "",
       "memo": "宿泊 7/13〜7/14(朝食つき)。到着日は荷物だけ預けて街歩きへ",
-      "links": { "official": "https://www.centurymarina.com/" }
+      "links": {
+        "official": "https://www.centurymarina.com/"
+      }
     },
     {
       "id": "lucky-pierrot",
@@ -40,7 +42,9 @@
       "hours": "10:00〜21:00頃",
       "budget": "〜1,000円",
       "memo": "定番はチャイニーズチキンバーガー!",
-      "links": { "official": "https://luckypierrot.jp/" }
+      "links": {
+        "official": "https://luckypierrot.jp/"
+      }
     },
     {
       "id": "motomachi",
@@ -82,7 +86,9 @@
       "hours": "ロープウェイ 10:00〜21:50(上り最終)",
       "budget": "ロープウェイ往復 1,800円",
       "memo": "18:30頃に上って夕暮れ→夜景のグラデーションを狙う",
-      "links": { "official": "https://334.co.jp/" }
+      "links": {
+        "official": "https://334.co.jp/"
+      }
     },
     {
       "id": "ikasei-daimon",
@@ -159,13 +165,13 @@
       "name": "ISO",
       "category": "food",
       "area": "小樽",
-      "lat": 43.19,
-      "lng": 141.003,
+      "lat": 43.2008,
+      "lng": 140.9988,
       "photo": "",
       "catchcopy": "小樽の夜を彩るディナー",
       "hours": "18:30〜(予約枠)",
       "budget": "",
-      "memo": "✅ カウンター予約済み!この日のメインイベント",
+      "memo": "✅ カウンター予約済み!この日のメインイベント(住所: 小樽市色内2-2-14)",
       "links": {}
     },
     {

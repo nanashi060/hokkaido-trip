@@ -1,7 +1,15 @@
 import { fmtDate } from "./common.js";
+import { icon } from "./icons.js";
 import { renderTimeline } from "./timeline.js";
 import { renderMap } from "./map.js";
 import { renderSpotCards } from "./spots.js";
+
+// HTML内の <span data-icon="..."> にSVGアイコンを流し込む
+function hydrateIcons() {
+  document.querySelectorAll("[data-icon]").forEach(el => {
+    el.innerHTML = icon(el.dataset.icon);
+  });
+}
 
 async function loadJson(path) {
   const res = await fetch(path);
@@ -10,6 +18,7 @@ async function loadJson(path) {
 }
 
 async function init() {
+  hydrateIcons();
   const [trip, spotsData, itinerary] = await Promise.all([
     loadJson("data/trip.json"),
     loadJson("data/spots.json"),
@@ -48,18 +57,68 @@ function renderHero(state) {
   const start = new Date(state.trip.startDate + "T00:00:00");
   const end = new Date(state.trip.endDate + "T23:59:59");
 
+  const flipUnit = (key, label) => `
+    <div class="flip-unit">
+      <div class="flip" data-key="${key}">
+        <div class="f-half f-top"><span></span></div>
+        <div class="f-half f-bottom"><span></span></div>
+        <div class="f-half f-flap-top"><span></span></div>
+        <div class="f-half f-flap-bottom"><span></span></div>
+      </div>
+      <span class="flip-label">${label}</span>
+    </div>`;
+
+  function buildClock() {
+    el.innerHTML = `
+      <div class="cd-card">
+        <div class="cd-big">しゅっぱつまで</div>
+        <div class="flip-clock">
+          ${flipUnit("d", "日")}${flipUnit("h", "時間")}${flipUnit("m", "分")}${flipUnit("s", "秒")}
+        </div>
+        <div class="cd-copy">${icon("sparkles")} 世界三大夜景と活イカが待ってるよ!</div>
+      </div>
+    `;
+  }
+
+  // パタパタめくれるフリップ表示の更新
+  function setFlip(flip, val) {
+    const prev = flip.dataset.value;
+    if (prev === val) return;
+    const span = sel => flip.querySelector(sel + " span");
+    flip.dataset.value = val;
+
+    if (prev === undefined) { // 初回はアニメーションなしで表示
+      span(".f-top").textContent = span(".f-bottom").textContent = val;
+      return;
+    }
+    span(".f-top").textContent = val;        // 上半分は新しい値(古い値のフラップが上に被る)
+    span(".f-bottom").textContent = prev;    // 下半分はめくり終わるまで古い値
+    span(".f-flap-top").textContent = prev;  // 折れていくフラップ=古い値
+    span(".f-flap-bottom").textContent = val;// 開いてくるフラップ=新しい値
+    flip.classList.remove("flipping");
+    void flip.offsetWidth; // アニメーションを再スタートさせるためのreflow
+    flip.classList.add("flipping");
+    clearTimeout(flip._t);
+    flip._t = setTimeout(() => {
+      span(".f-bottom").textContent = val;
+      flip.classList.remove("flipping");
+    }, 620);
+  }
+
   function tick() {
     const now = new Date();
 
     if (now > end) {
-      el.innerHTML = `<div class="cd-message">最高の思い出をありがとう 🥹✨</div>`;
+      el.innerHTML = `<div class="cd-message">最高の思い出をありがとう!また行こうね ${icon("heart")}</div>`;
       return;
     }
     if (now >= start) {
       const day = Math.floor((now - start) / 86400000) + 1;
-      el.innerHTML = `<div class="cd-message">🎉 旅行中!今日は Day ${day} 🎉</div>`;
+      el.innerHTML = `<div class="cd-message">${icon("sparkles")} 旅行中!今日は Day ${day} ${icon("sparkles")}</div>`;
       return;
     }
+
+    if (!el.querySelector(".flip-clock")) buildClock();
 
     let rest = Math.floor((start - now) / 1000);
     const d = Math.floor(rest / 86400); rest %= 86400;
@@ -67,16 +126,9 @@ function renderHero(state) {
     const m = Math.floor(rest / 60);
     const s = rest % 60;
     const pad = n => String(n).padStart(2, "0");
-    const big = d > 0
-      ? `しゅっぱつまで あと <span class="cd-big-num">${d}</span> 日`
-      : `しゅっぱつまで あと <span class="cd-big-num">${h}</span> 時間`;
-    el.innerHTML = `
-      <div class="cd-card">
-        <div class="cd-big">${big}</div>
-        <div class="cd-small">${pad(h)}時間 ${pad(m)}分 ${pad(s)}秒</div>
-        <div class="cd-copy">🌃 世界三大夜景と活イカが待ってるよ!</div>
-      </div>
-    `;
+    const values = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
+    el.querySelectorAll(".flip").forEach(f => setFlip(f, values[f.dataset.key]));
+
     setTimeout(tick, 1000);
   }
   tick();

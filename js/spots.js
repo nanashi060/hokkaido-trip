@@ -1,4 +1,5 @@
 import { CATEGORIES, categoryOf, esc, reveal } from "./common.js";
+import { icon } from "./icons.js";
 
 export function renderSpotCards(state, mapApi) {
   const grid = document.getElementById("spot-grid");
@@ -22,8 +23,8 @@ function renderFilters(state, grid) {
   el.innerHTML = `
     <button class="map-filter active" data-cat="all" style="--chip-color:#3D3A38">ぜんぶ</button>
     ${used.map(key => {
-      const cat = CATEGORIES[key] || { label: key, icon: "📍", color: "#868E96" };
-      return `<button class="map-filter" data-cat="${esc(key)}" style="--chip-color:${cat.color}">${cat.icon} ${cat.label}</button>`;
+      const cat = CATEGORIES[key] || { label: key, icon: "map-pin", color: "#868E96" };
+      return `<button class="map-filter" data-cat="${esc(key)}" style="--chip-color:${cat.color}">${icon(cat.icon)} ${cat.label}</button>`;
     }).join("")}
   `;
 
@@ -45,17 +46,17 @@ function renderCard(spot) {
 
   const photo = spot.photo
     ? `<div class="spot-photo"><img src="${esc(spot.photo)}" alt="${esc(spot.name)}" loading="lazy"></div>`
-    : `<div class="spot-photo" style="--photo-bg:${cat.bg}">${cat.icon}</div>`;
+    : `<div class="spot-photo" style="--photo-bg:${cat.bg}; color:${cat.color}">${icon(cat.icon)}</div>`;
 
   const meta = [
-    spot.hours ? `<div><span>🕐</span><span>${esc(spot.hours)}</span></div>` : "",
-    spot.budget ? `<div><span>💰</span><span>${esc(spot.budget)}</span></div>` : ""
+    spot.hours ? `<div><span>${icon("clock")}</span><span>${esc(spot.hours)}</span></div>` : "",
+    spot.budget ? `<div><span>${icon("wallet")}</span><span>${esc(spot.budget)}</span></div>` : ""
   ].join("");
 
   const links = [
-    `<a href="#map-section" data-fly-to="${esc(spot.id)}">旅マップで見る 🗾</a>`,
-    spot.links?.official ? `<a href="${esc(spot.links.official)}" target="_blank" rel="noopener">公式サイト 🔗</a>` : "",
-    `<a href="${gmap}" target="_blank" rel="noopener">地図アプリで開く 🧭</a>`
+    `<a href="#map-section" data-fly-to="${esc(spot.id)}">${icon("compass")} 旅マップで見る</a>`,
+    spot.links?.official ? `<a href="${esc(spot.links.official)}" target="_blank" rel="noopener">${icon("external-link")} 公式サイト</a>` : "",
+    `<a href="${gmap}" target="_blank" rel="noopener">${icon("navigation")} 地図アプリで開く</a>`
   ].join("");
 
   return `
@@ -63,13 +64,13 @@ function renderCard(spot) {
       ${photo}
       <div class="spot-body">
         <div class="spot-tags">
-          <span class="spot-tag" style="--tag-color:${cat.color}">${cat.icon} ${cat.label}</span>
-          <span class="spot-tag area">📍 ${esc(spot.area)}</span>
+          <span class="spot-tag" style="--tag-color:${cat.color}">${icon(cat.icon)} ${cat.label}</span>
+          <span class="spot-tag area">${icon("map-pin")} ${esc(spot.area)}</span>
         </div>
         <h3 class="spot-name">${esc(spot.name)}</h3>
         <p class="spot-catch">${esc(spot.catchcopy)}</p>
         ${meta ? `<div class="spot-meta">${meta}</div>` : ""}
-        ${spot.memo ? `<div class="spot-memo">📝 ${esc(spot.memo)}</div>` : ""}
+        ${spot.memo ? `<div class="spot-memo">${icon("pencil-line")} ${esc(spot.memo)}</div>` : ""}
         <div class="spot-links">${links}</div>
       </div>
     </article>`;

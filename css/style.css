@@ -19,6 +19,15 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* SVGアイコン(Lucide)の基本サイズ:文字サイズに追従 */
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+}
+
 html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 
 body {
@@ -88,11 +97,12 @@ body {
   z-index: 0;
   top: 100%;
   left: var(--x);
-  font-size: 1.8rem;
   animation: float-up 9s linear infinite;
   animation-delay: var(--d);
   opacity: 0;
 }
+
+.hero-floaters .icon { width: 34px; height: 34px; opacity: 0.55; }
 
 @keyframes float-up {
   0%   { transform: translateY(0) rotate(-8deg); opacity: 0; }
@@ -144,25 +154,97 @@ body {
   padding: 20px 34px 18px;
 }
 
-.cd-big { font-weight: 800; font-size: 1.15rem; }
+.cd-big { font-weight: 800; font-size: 1.05rem; }
 
-.cd-big-num {
-  font-size: 3.6rem;
+/* ---------- フリップ時計 ---------- */
+.flip-clock {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.flip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.flip {
+  position: relative;
+  width: 58px;
+  height: 66px;
+  perspective: 340px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 中央の折り目ライン */
+.flip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+.f-half {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background: #3D3A38;
+  color: #fff;
   font-weight: 800;
-  line-height: 1;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-  display: inline-block;
-  margin: 0 4px;
+  font-size: 2.1rem;
 }
 
-.cd-small {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--ink-soft);
-  font-variant-numeric: tabular-nums;
-  margin-top: 2px;
+.f-half span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 66px;
+  line-height: 66px;
+  text-align: center;
 }
+
+.f-top, .f-flap-top { top: 0; border-radius: 10px 10px 0 0; }
+.f-bottom, .f-flap-bottom { bottom: 0; border-radius: 0 0 10px 10px; background: #4B4744; }
+.f-top span, .f-flap-top span { top: 0; }
+.f-bottom span, .f-flap-bottom span { top: -100%; }
+
+/* フラップはめくれている間だけ表示 */
+.f-flap-top, .f-flap-bottom { display: none; backface-visibility: hidden; z-index: 2; }
+
+.flipping .f-flap-top {
+  display: block;
+  transform-origin: bottom;
+  animation: flip-fold 0.3s ease-in forwards;
+}
+
+.flipping .f-flap-bottom {
+  display: block;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  animation: flip-unfold 0.3s ease-out 0.3s forwards;
+}
+
+@keyframes flip-fold {
+  from { transform: rotateX(0); }
+  to   { transform: rotateX(-90deg); }
+}
+
+@keyframes flip-unfold {
+  from { transform: rotateX(90deg); }
+  to   { transform: rotateX(0); }
+}
+
+.flip-label { font-size: 0.72rem; font-weight: 800; color: var(--ink-soft); }
 
 .cd-copy {
   margin-top: 8px;
@@ -307,6 +389,14 @@ body {
   font-size: 0.85rem;
 }
 
+.tl-dot { color: #fff; }
+
+.tl-dot .icon { width: 15px; height: 15px; }
+
+.tl-item.move .tl-dot { color: var(--day-color); }
+
+.tl-item.tbd .tl-dot { color: var(--ink-soft); }
+
 .tl-card {
   background: var(--card);
   border-radius: var(--radius);
@@ -404,7 +494,9 @@ body {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-.map-pin span { transform: rotate(45deg); font-size: 0.95rem; }
+.map-pin span { transform: rotate(45deg); display: flex; }
+
+.map-pin .icon { width: 15px; height: 15px; color: #fff; }
 
 /* ルート点線がゆっくり流れる演出 */
 .leaflet-overlay-pane path {
@@ -529,7 +621,11 @@ body {
   .timeline-body { padding-left: 78px; }
   .timeline-body::before { left: 56px; }
   .tl-time { left: -78px; width: 44px; font-size: 0.78rem; }
-  .tl-dot { left: -33px; width: 26px; height: 26px; font-size: 0.75rem; }
+  .tl-dot { left: -33px; width: 26px; height: 26px; }
+  .tl-dot .icon { width: 13px; height: 13px; }
+  .flip { width: 50px; height: 58px; }
+  .f-half span { height: 58px; line-height: 58px; }
+  .f-half { font-size: 1.8rem; }
   #map { height: 380px; }
   .nav-links a { font-size: 0.78rem; padding: 6px 7px; }
 }

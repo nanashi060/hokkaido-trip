@@ -1,4 +1,5 @@
-import { categoryOf, esc, fmtDate, reveal } from "./common.js";
+import { categoryOf, esc, fmtDate, reveal, transportIcon } from "./common.js";
+import { icon } from "./icons.js";
 
 export function renderTimeline(state, currentDay) {
   const tabsEl = document.getElementById("day-tabs");
@@ -35,7 +36,7 @@ function selectDay(state, dayNum) {
   document.getElementById("day-header").innerHTML = `
     <span class="dh-area">${fmtDate(day.date)} ・ ${esc(day.area)}</span>
     <div class="dh-title">${esc(day.title)}</div>
-    ${day.tentative ? `<div class="dh-tentative">🚧 この日はまだ計画中です</div>` : ""}
+    ${day.tentative ? `<div class="dh-tentative">${icon("construction")} この日はまだ計画中です</div>` : ""}
   `;
 
   const sched = state.itinerary.schedule.find(s => s.day === dayNum);
@@ -49,11 +50,10 @@ function renderItem(state, item) {
   const time = item.time ? esc(item.time) : "";
 
   if (item.type === "move") {
-    const icon = (item.method || "🚙").split(" ")[0];
     return `
       <div class="tl-item move">
         <div class="tl-time">${time}</div>
-        <div class="tl-dot">${esc(icon)}</div>
+        <div class="tl-dot">${icon(transportIcon(item.method))}</div>
         <div class="tl-card">
           <div class="tl-move-text">${esc(item.method)}・${esc(item.duration)} — ${esc(item.note)}</div>
         </div>
@@ -64,7 +64,7 @@ function renderItem(state, item) {
     return `
       <div class="tl-item tbd">
         <div class="tl-time">${time}</div>
-        <div class="tl-dot">🚧</div>
+        <div class="tl-dot">${icon("construction")}</div>
         <div class="tl-card">${esc(item.note)}</div>
       </div>`;
   }
@@ -78,10 +78,10 @@ function renderItem(state, item) {
   return `
     <div class="tl-item">
       <div class="tl-time">${time}</div>
-      <div class="tl-dot">${cat.icon}</div>
+      <div class="tl-dot">${icon(cat.icon)}</div>
       <div class="tl-card">
         <div class="tl-name">${esc(label)}</div>
-        ${showSpotName ? `<div class="tl-spotname">📍 ${esc(spot.name)}</div>` : ""}
+        ${showSpotName ? `<div class="tl-spotname">${icon("map-pin")} ${esc(spot.name)}</div>` : ""}
         ${item.note ? `<div class="tl-note">${esc(item.note)}</div>` : ""}
         <a class="tl-link" href="#spot-${esc(spot.id)}">詳細を見る →</a>
       </div>
