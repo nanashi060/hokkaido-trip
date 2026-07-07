@@ -3,89 +3,177 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>北海道旅行 2026 🗺️</title>
+  <title>北海道旅行 2026 | 旅のしおり</title>
   <meta name="description" content="函館・小樽・札幌をめぐる4泊5日のふたり旅のしおり">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="preload" as="image" href="images/mt-hakodate.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <div class="intro" id="intro" aria-hidden="true">
+    <span class="cloud intro-cloud-a"></span>
+    <span class="cloud intro-cloud-b"></span>
+    <div class="intro-inner">
+      <p class="intro-eyebrow">旅のしおり</p>
+      <p class="intro-title">北海道旅行 2026</p>
+      <svg class="intro-flight" viewBox="0 0 520 150" aria-hidden="true">
+        <defs>
+          <mask id="intro-trail">
+            <path d="M16 118 C 150 28, 330 16, 504 72" pathLength="100" fill="none"
+                  stroke="#fff" stroke-width="26" stroke-dasharray="100" stroke-dashoffset="100">
+              <animate attributeName="stroke-dashoffset" from="100" to="0" begin="0.25s" dur="1.1s"
+                       fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.25 1"/>
+            </path>
+          </mask>
+        </defs>
+        <path d="M16 118 C 150 28, 330 16, 504 72" mask="url(#intro-trail)" fill="none"
+              stroke="#e85d45" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 11" opacity="0.8"/>
+        <g fill="#e85d45" opacity="0">
+          <path d="M4 0 L-20 11 L-11 1.5 L-11 -1.5 L-20 -11 Z"/>
+          <animate attributeName="opacity" from="0" to="1" begin="0.25s" dur="0.01s" fill="freeze"/>
+          <animateMotion path="M16 118 C 150 28, 330 16, 504 72" begin="0.25s" dur="1.1s"
+                         fill="freeze" rotate="auto" calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.25 1"/>
+        </g>
+        <!-- 紙飛行機を追いかけるシマエナガ -->
+        <g class="intro-bird" opacity="0">
+          <g transform="scale(1.15)">
+            <path d="M-7 5 L-21 15" stroke="#3d4046" stroke-width="3.4" stroke-linecap="round"/>
+            <circle cx="0" cy="0" r="12" fill="#fffdf8" stroke="rgba(19,32,35,0.16)"/>
+            <ellipse cx="-5" cy="-7" rx="6" ry="3.4" transform="rotate(-26 -5 -7)" fill="#d9c7a5"/>
+            <ellipse class="se-wing" cx="-4" cy="3" rx="6.4" ry="4.4" fill="#4c443c"/>
+            <circle cx="5.4" cy="-2.6" r="1.6" fill="#23272c"/>
+            <circle cx="6" cy="-3.2" r="0.5" fill="#fffdf8"/>
+            <path d="M11.4 -0.6 L14.6 0.5 L11.2 1.7 Z" fill="#6b5d4f"/>
+            <circle cx="7.6" cy="1.6" r="1.8" fill="#f2b0a4" opacity="0.5"/>
+          </g>
+          <animate attributeName="opacity" from="0" to="1" begin="0.52s" dur="0.01s" fill="freeze"/>
+          <animateMotion path="M16 118 C 150 28, 330 16, 504 72" begin="0.52s" dur="1.15s"
+                         fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.25 1"
+                         keyPoints="0;0.82"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    // オープニングの起動判定: 毎回再生(reduced-motionのみスキップ)
+    (function () {
+      try {
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("intro-play");
+        }
+      } catch (e) { /* matchMedia不可の環境では演出なしでそのまま表示 */ }
+    })();
+  </script>
+
   <nav class="site-nav">
     <a class="nav-logo" href="#top"><span data-icon="map"></span> 北海道旅行 2026</a>
     <div class="nav-links">
-      <a href="#timeline"><span data-icon="calendar-days"></span> スケジュール</a>
-      <a href="#map-section"><span data-icon="map"></span> マップ</a>
+      <a href="#timeline"><span data-icon="calendar-days"></span> 旅程</a>
+      <a href="#map-section"><span data-icon="map"></span> 地図</a>
       <a href="#spots"><span data-icon="map-pin"></span> スポット</a>
+    </div>
+    <!-- 航路プログレス: ページの読み進みを点線の航路と飛行機で示す -->
+    <div class="journey-progress" aria-hidden="true">
+      <span class="jp-line"></span>
+      <span class="jp-plane" data-icon="plane"></span>
     </div>
   </nav>
 
   <header class="hero" id="top">
-    <div class="hero-floaters" aria-hidden="true">
-      <span style="--d:0s;   --x:8%;  color:#2F6F8F" data-icon="plane"></span>
-      <span style="--d:2.5s; --x:28%; color:#B6423E" data-icon="camera"></span>
-      <span style="--d:1.2s; --x:48%; color:#A65A1F" data-icon="ice-cream-cone"></span>
-      <span style="--d:3.8s; --x:68%; color:#1F7A83" data-icon="mountain-snow"></span>
-      <span style="--d:0.8s; --x:86%; color:#6B5CA5" data-icon="beer"></span>
+    <div class="hero-motion" aria-hidden="true">
+      <canvas class="sky-canvas" id="sky-canvas"></canvas>
+      <span class="cloud cloud-a"></span>
+      <span class="cloud cloud-b"></span>
+      <span class="cloud cloud-c"></span>
     </div>
-    <div class="hero-enaga" role="img" aria-label="旅の相棒のシマエナガ">
-      <svg class="shimaenaga" viewBox="0 0 180 130" aria-hidden="true">
-        <path class="enaga-tail" d="M116 74 C148 69 168 82 174 104 C145 101 124 91 105 78 Z"/>
-        <ellipse class="enaga-shadow" cx="85" cy="112" rx="48" ry="8"/>
-        <ellipse class="enaga-body" cx="76" cy="72" rx="57" ry="43"/>
-        <path class="enaga-wing left" d="M42 68 C22 73 15 88 18 102 C35 100 48 90 55 75 Z"/>
-        <path class="enaga-wing right" d="M111 66 C130 70 141 84 140 98 C123 98 112 88 104 75 Z"/>
-        <circle class="enaga-head" cx="72" cy="47" r="34"/>
-        <circle class="enaga-eye" cx="58" cy="42" r="4"/>
-        <circle class="enaga-eye" cx="87" cy="42" r="4"/>
-        <path class="enaga-beak" d="M70 51 L78 55 L70 59 Z"/>
-        <circle class="enaga-cheek" cx="48" cy="53" r="7"/>
-        <circle class="enaga-cheek" cx="95" cy="53" r="7"/>
-      </svg>
-      <span>シマエナガも旅支度中</span>
-    </div>
-    <p class="hero-eyebrow">ふたりの旅のしおり</p>
-    <h1 class="hero-title" id="hero-title">北海道旅行 2026</h1>
-    <p class="hero-sub" id="hero-sub"></p>
-    <p class="hero-dates" id="hero-dates"></p>
-    <div class="countdown" id="countdown"></div>
-    <div class="hero-waves" aria-hidden="true">
-      <svg class="wave wave-back" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,44 C200,20 420,72 640,58 C860,44 1080,76 1280,60 C1360,54 1400,48 1440,52 L1440,90 L0,90 Z"/>
-      </svg>
-      <svg class="wave wave-front" viewBox="0 0 1440 90" preserveAspectRatio="none">
-        <path d="M0,58 C180,86 360,40 540,52 C720,64 900,30 1080,44 C1260,58 1350,72 1440,60 L1440,90 L0,90 Z"/>
-      </svg>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 class="hero-title" id="hero-title">北海道旅行 2026</h1>
+        <div class="hero-actions" aria-label="主要リンク">
+          <a class="btn primary" href="#timeline"><span data-icon="calendar-days"></span> 予定を見る</a>
+          <a class="btn secondary" href="#map-section"><span data-icon="map"></span> 地図を見る</a>
+        </div>
+        <div class="travel-ticket">
+          <span class="ticket-label">旅行日程</span>
+          <strong id="hero-dates"></strong>
+        </div>
+        <div class="countdown" id="countdown"></div>
+      </div>
+
+      <div class="hero-visual" aria-label="北海道旅行の写真コラージュ">
+        <figure class="photo-card photo-main">
+          <span class="tape tape-tl" aria-hidden="true"></span>
+          <span class="tape tape-tr" aria-hidden="true"></span>
+          <div class="photo-frame"><img src="images/mt-hakodate.jpg" alt="函館山から望む街と海"></div>
+          <figcaption>函館山</figcaption>
+        </figure>
+        <figure class="photo-card photo-tall">
+          <span class="tape tape-top" aria-hidden="true"></span>
+          <div class="photo-frame"><img src="images/teashop-yuhi.jpg" alt="函館湾を望む建物"></div>
+          <figcaption>ティーショップ夕日</figcaption>
+        </figure>
+        <figure class="photo-card photo-wide">
+          <span class="tape tape-corner" aria-hidden="true"></span>
+          <div class="photo-frame"><img src="images/otaru-canal.jpg" alt="夜の小樽運河"></div>
+          <figcaption>小樽運河</figcaption>
+        </figure>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="section" id="timeline">
-      <h2 class="section-title"><span data-icon="calendar-days"></span> 旅のスケジュール</h2>
+    <span class="cloud sky-cloud sky-cloud-a" aria-hidden="true"></span>
+    <span class="cloud sky-cloud sky-cloud-b" aria-hidden="true"></span>
+
+    <section class="section travel-page" id="timeline" data-page-label="旅程">
+      <div class="section-heading">
+        <h2 class="section-title"><span data-icon="calendar-days"></span> 旅のスケジュール</h2>
+      </div>
       <div class="day-tabs" id="day-tabs" role="tablist"></div>
       <div class="day-header" id="day-header"></div>
       <div class="timeline-body" id="timeline-body"></div>
     </section>
 
-    <section class="section" id="map-section">
-      <h2 class="section-title"><span data-icon="map"></span> 旅のマップ</h2>
+    <section class="section travel-page" id="map-section" data-page-label="地図">
+      <div class="section-heading">
+        <h2 class="section-title"><span data-icon="map"></span> 旅のマップ</h2>
+      </div>
       <div class="map-filters" id="map-filters"></div>
       <div id="map"></div>
     </section>
 
-    <section class="section" id="spots">
-      <h2 class="section-title"><span data-icon="map-pin"></span> スポット図鑑</h2>
+    <section class="section travel-page" id="spots" data-page-label="図鑑">
+      <div class="section-heading">
+        <h2 class="section-title"><span data-icon="map-pin"></span> スポット図鑑</h2>
+      </div>
       <div class="spot-filters" id="spot-filters"></div>
       <div class="spot-grid" id="spot-grid"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p><span data-icon="luggage"></span> いってらっしゃい!すてきな旅になりますように <span class="heart-beat" data-icon="heart"></span></p>
+    <p>
+      <button class="shimaenaga" id="shimaenaga" type="button" aria-label="シマエナガにあいさつする">
+        <svg viewBox="-24 -20 48 40" width="40" height="33" aria-hidden="true">
+          <path d="M-7 5 L-21 15" stroke="#3d4046" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M-2 11 V16 M4 11 V16" stroke="#8a7a63" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="12" fill="#fffdf8" stroke="rgba(19,32,35,0.16)"/>
+          <ellipse cx="-5" cy="-7" rx="6" ry="3.4" transform="rotate(-26 -5 -7)" fill="#d9c7a5"/>
+          <ellipse cx="-4" cy="3" rx="6.4" ry="4.4" transform="rotate(-22 -4 3)" fill="#4c443c"/>
+          <circle class="se-eye" cx="5.4" cy="-2.6" r="1.6" fill="#23272c"/>
+          <circle cx="6" cy="-3.2" r="0.5" fill="#fffdf8"/>
+          <path d="M11.4 -0.6 L14.6 0.5 L11.2 1.7 Z" fill="#6b5d4f"/>
+          <circle cx="7.6" cy="1.6" r="1.8" fill="#f2b0a4" opacity="0.5"/>
+        </svg>
+      </button>
+    </p>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

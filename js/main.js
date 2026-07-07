@@ -1,8 +1,9 @@
-import { fmtDate } from "./common.js";
+import { esc, fmtDate } from "./common.js";
 import { icon } from "./icons.js";
 import { renderTimeline } from "./timeline.js";
 import { renderMap } from "./map.js";
 import { renderSpotCards } from "./spots.js";
+import { initExperienceMotion, initIntro } from "./motion.js";
 
 // HTML内の <span data-icon="..."> にSVGアイコンを流し込む
 function hydrateIcons() {
@@ -18,6 +19,7 @@ async function loadJson(path) {
 }
 
 async function init() {
+  initIntro();
   hydrateIcons();
   const [trip, spotsData, itinerary] = await Promise.all([
     loadJson("data/trip.json"),
@@ -34,8 +36,9 @@ async function init() {
 
   renderHero(state);
   renderTimeline(state, currentTripDay(state));
-  const mapApi = renderMap(state);
+  const mapApi = globalThis.L ? renderMap(state) : renderMapFallback();
   renderSpotCards(state, mapApi);
+  initExperienceMotion();
 }
 
 // 旅行中なら今日が Day 何日目かを返す(旅行前後は null)
@@ -48,8 +51,9 @@ function currentTripDay(state) {
 }
 
 function renderHero(state) {
-  document.getElementById("hero-title").textContent = state.trip.title;
-  document.getElementById("hero-sub").textContent = state.trip.subtitle;
+  const heroTitle = document.getElementById("hero-title");
+  heroTitle.innerHTML = formatHeroTitle(state.trip.title);
+  heroTitle.setAttribute("aria-label", state.trip.title);
   document.getElementById("hero-dates").textContent =
     `${fmtDate(state.trip.startDate)} 〜 ${fmtDate(state.trip.endDate)}`;
 
@@ -71,11 +75,10 @@ function renderHero(state) {
   function buildClock() {
     el.innerHTML = `
       <div class="cd-card">
-        <div class="cd-big">しゅっぱつまで</div>
+        <div class="cd-big">出発まで</div>
         <div class="flip-clock">
           ${flipUnit("d", "日")}${flipUnit("h", "時間")}${flipUnit("m", "分")}${flipUnit("s", "秒")}
         </div>
-        <div class="cd-copy">${icon("sparkles")} 世界三大夜景と活イカが待ってるよ!</div>
       </div>
     `;
   }
@@ -109,12 +112,12 @@ function renderHero(state) {
     const now = new Date();
 
     if (now > end) {
-      el.innerHTML = `<div class="cd-message">最高の思い出をありがとう!また行こうね ${icon("heart")}</div>`;
+      el.innerHTML = `<div class="cd-message">最高の思い出をありがとう。また行こうね ${icon("heart")}</div>`;
       return;
     }
     if (now >= start) {
       const day = Math.floor((now - start) / 86400000) + 1;
-      el.innerHTML = `<div class="cd-message">${icon("sparkles")} 旅行中!今日は Day ${day} ${icon("sparkles")}</div>`;
+      el.innerHTML = `<div class="cd-message">${icon("sparkles")} 旅行中。今日は Day ${day}</div>`;
       return;
     }
 
@@ -132,6 +135,32 @@ function renderHero(state) {
     setTimeout(tick, 1000);
   }
   tick();
+}
+
+function formatHeroTitle(title) {
+  return wrapKinetic(String(title ?? "").trim());
+}
+
+function wrapKinetic(text, offset = 0) {
+  return Array.from(text).map((ch, index) => {
+    if (ch === " ") return " "; // 狭い画面ではここでだけ折り返せるように
+    return `<span class="kinetic-char" style="--char-i:${index + offset}">${esc(ch)}</span>`;
+  }).join("");
+}
+
+function renderMapFallback() {
+  document.getElementById("map-filters").innerHTML = "";
+  document.getElementById("map").innerHTML = `
+    <div class="map-fallback">
+      ${icon("map")} 地図を読み込めませんでした。スポット図鑑の「地図アプリで開く」から確認できます。
+    </div>
+  `;
+  return {
+    focusSpot() {
+      const reduce = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      document.getElementById("map-section")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    }
+  };
 }
 
 init().catch(err => {

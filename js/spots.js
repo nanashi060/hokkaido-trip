@@ -58,6 +58,7 @@ function renderCard(spot) {
 
   const links = [
     `<a href="#map-section" data-fly-to="${esc(spot.id)}">${icon("compass")} 旅マップで見る</a>`,
+    spot.links?.tabelog ? `<a href="${esc(spot.links.tabelog)}" target="_blank" rel="noopener">${icon("external-link")} 食べログ</a>` : "",
     spot.links?.official ? `<a href="${esc(spot.links.official)}" target="_blank" rel="noopener">${icon("external-link")} 公式サイト</a>` : "",
     `<a href="${gmap}" target="_blank" rel="noopener">${icon("navigation")} 地図アプリで開く</a>`
   ].join("");

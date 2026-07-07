@@ -44,6 +44,7 @@ function selectDay(state, dayNum) {
   const body = document.getElementById("timeline-body");
   body.innerHTML = items.map(item => renderItem(state, item)).join("");
   reveal(body.querySelectorAll(".tl-item"));
+  document.dispatchEvent(new CustomEvent("daychange", { detail: { day: dayNum, theme: day.theme } }));
 }
 
 function renderItem(state, item) {
@@ -55,7 +56,7 @@ function renderItem(state, item) {
         <div class="tl-time">${time}</div>
         <div class="tl-dot">${icon(transportIcon(item.method))}</div>
         <div class="tl-card">
-          <div class="tl-move-text">${esc(item.method)}・${esc(item.duration)} — ${esc(item.note)}</div>
+          <div class="tl-move-text">${esc(item.method)}・${esc(item.duration)}: ${esc(item.note)}</div>
         </div>
       </div>`;
   }

@@ -222,12 +222,19 @@
       "area": "小樽",
       "lat": 43.2008,
       "lng": 140.9988,
-      "photo": "",
+      "photo": "https://tblg.k-img.com/restaurant/images/Rvw/105328/640x640_rect_105328087.jpg",
       "catchcopy": "小樽の夜を彩るディナー",
       "hours": "18:30〜(予約枠)",
       "budget": "",
       "memo": "✅ カウンター予約済み!この日のメインイベント(住所: 小樽市色内2-2-14)",
-      "links": {}
+      "links": {
+        "tabelog": "https://tabelog.com/hokkaido/A0106/A010601/1057501/"
+      },
+      "photoCredit": {
+        "author": "ISO",
+        "license": "食べログ 店舗公式写真",
+        "url": "https://tabelog.com/hokkaido/A0106/A010601/1057501/dtlphotolst/4/smp2/"
+      }
     },
     {
       "id": "otaru-beer",

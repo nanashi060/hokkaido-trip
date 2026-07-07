@@ -1,4 +1,4 @@
-// カテゴリ定義 — 新カテゴリを増やすときはここに1行足すだけ(iconはjs/icons.jsの名前)
+// カテゴリ定義 - 新カテゴリを増やすときはここに1行足すだけ(iconはjs/icons.jsの名前)
 export const CATEGORIES = {
   food:        { label: "グルメ",   icon: "utensils",   color: "#9A5C4F", bg: "linear-gradient(135deg,#F2D2C6,#9A5C4F)" },
   cafe:        { label: "カフェ",   icon: "coffee",     color: "#806B4A", bg: "linear-gradient(135deg,#E9DCC4,#806B4A)" },
@@ -36,6 +36,22 @@ export function fmtDate(iso) {
 
 // スクロールで順にふわっと出すアニメーション
 export function reveal(elements) {
+  elements.forEach((el, index) => {
+    el.style.setProperty("--reveal-index", String(index % 10));
+  });
+
+  const reduce = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+
+  const isInView = el => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  };
+
+  if (!("IntersectionObserver" in window) || reduce) {
+    elements.forEach(el => el.classList.add("visible"));
+    return;
+  }
+
   const io = new IntersectionObserver(entries => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -44,5 +60,8 @@ export function reveal(elements) {
       }
     }
   }, { threshold: 0.1 });
-  elements.forEach(el => io.observe(el));
+  elements.forEach(el => {
+    if (isInView(el)) el.classList.add("visible");
+    io.observe(el);
+  });
 }
