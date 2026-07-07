@@ -8,7 +8,7 @@
       "day": 1,
       "date": "2026-07-13",
       "area": "函館",
-      "theme": "#E63946",
+      "theme": "#B6423E",
       "title": "函館到着!坂の街さんぽと世界三大夜景",
       "tentative": false
     },
@@ -16,7 +16,7 @@
       "day": 2,
       "date": "2026-07-14",
       "area": "函館 → 小樽",
-      "theme": "#457B9D",
+      "theme": "#2F6F8F",
       "title": "レンタカーで小樽へ!グルメドライブの旅",
       "tentative": false
     },
@@ -24,7 +24,7 @@
       "day": 3,
       "date": "2026-07-15",
       "area": "小樽・札幌(仮)",
-      "theme": "#2A9D8F",
+      "theme": "#1F7A83",
       "title": "計画中",
       "tentative": true
     },
@@ -32,7 +32,7 @@
       "day": 4,
       "date": "2026-07-16",
       "area": "札幌(仮)",
-      "theme": "#F08C00",
+      "theme": "#A65A1F",
       "title": "計画中",
       "tentative": true
     },
@@ -40,7 +40,7 @@
       "day": 5,
       "date": "2026-07-17",
       "area": "札幌 → 帰路(仮)",
-      "theme": "#9775FA",
+      "theme": "#6B5CA5",
       "title": "計画中",
       "tentative": true
     }

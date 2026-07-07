@@ -4,16 +4,16 @@
    ============================================================ */
 
 :root {
-  --bg: #FFF9F0;
-  --ink: #3D3A38;
-  --ink-soft: #8A817A;
+  --bg: #F7F3EA;
+  --ink: #283238;
+  --ink-soft: #626B73;
   --card: #FFFFFF;
-  --line: #F0E6D8;
-  --accent: #E63946;
-  --day-color: #E63946;
+  --line: #E3D9CC;
+  --accent: #C94D3F;
+  --day-color: #B6423E;
   --radius: 18px;
-  --shadow: 0 4px 14px rgba(61, 58, 56, 0.08);
-  --shadow-hover: 0 10px 24px rgba(61, 58, 56, 0.14);
+  --shadow: 0 4px 14px rgba(40, 50, 56, 0.08);
+  --shadow-hover: 0 10px 24px rgba(40, 50, 56, 0.14);
   --font: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", sans-serif;
 }
 
@@ -47,7 +47,7 @@ body {
   justify-content: space-between;
   gap: 12px;
   padding: 10px 20px;
-  background: rgba(255, 249, 240, 0.9);
+  background: rgba(247, 243, 234, 0.9);
   backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--line);
 }
@@ -67,7 +67,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--ink-soft);
+  color: #4A5960;
   font-weight: 700;
   font-size: 0.85rem;
   padding: 6px 10px;
@@ -84,12 +84,42 @@ body {
   overflow: hidden;
   text-align: center;
   padding: 72px 20px 88px;
-  background: linear-gradient(160deg, #FFE3E3 0%, #FFF3BF 45%, #D3F9D8 100%);
+  background: linear-gradient(180deg, #F3C9B8 0%, #F7E6D2 46%, #CFECEF 100%);
 }
 
 .hero-eyebrow, .hero-title, .hero-sub, .hero-dates, .countdown {
   position: relative;
+  z-index: 2;
+}
+
+/* ヒーロー下端の波(次セクションの背景色で塗る) */
+.hero-waves {
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  bottom: -1px;
   z-index: 1;
+  pointer-events: none;
+}
+
+.wave {
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+
+.wave-front { fill: var(--bg); margin-top: -56px; }
+
+.wave-back {
+  fill: rgba(190, 225, 230, 0.6);
+  animation: wave-sway 7s ease-in-out infinite alternate;
+}
+
+.wave-front { animation: wave-sway 9s ease-in-out infinite alternate-reverse; }
+
+@keyframes wave-sway {
+  from { transform: translateX(-14px); }
+  to   { transform: translateX(14px); }
 }
 
 .hero-floaters span {
@@ -198,7 +228,7 @@ body {
   width: 100%;
   height: 50%;
   overflow: hidden;
-  background: #3D3A38;
+  background: #283238;
   color: #fff;
   font-weight: 800;
   font-size: 2.1rem;
@@ -214,7 +244,7 @@ body {
 }
 
 .f-top, .f-flap-top { top: 0; border-radius: 10px 10px 0 0; }
-.f-bottom, .f-flap-bottom { bottom: 0; border-radius: 0 0 10px 10px; background: #4B4744; }
+.f-bottom, .f-flap-bottom { bottom: 0; border-radius: 0 0 10px 10px; background: #33414A; }
 .f-top span, .f-flap-top span { top: 0; }
 .f-bottom span, .f-flap-bottom span { top: -100%; }
 
@@ -284,6 +314,13 @@ body {
   overflow-x: auto;
   padding-bottom: 10px;
   justify-content: safe center;
+}
+
+.day-tabs::-webkit-scrollbar { height: 5px; }
+
+.day-tabs::-webkit-scrollbar-thumb {
+  background: #C8B9A8;
+  border-radius: 999px;
 }
 
 .day-tab {
@@ -605,6 +642,51 @@ body {
   padding: 48px 20px 56px;
   font-weight: 700;
   color: var(--ink-soft);
+}
+
+/* ---------- マイクロアニメーション(Animate.css v4.1.1 (MIT) から移植・振幅調整) ---------- */
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0%   { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+  20%  { transform: scale3d(1.1, 1.1, 1.1); }
+  40%  { transform: scale3d(0.9, 0.9, 0.9); }
+  60%  { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+  80%  { transform: scale3d(0.97, 0.97, 0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes tadaSoft {
+  0%, to { transform: none; }
+  10%, 20% { transform: scale(0.96) rotate(-2deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.04) rotate(2deg); }
+  40%, 60%, 80% { transform: scale(1.04) rotate(-2deg); }
+}
+
+@keyframes pulse {
+  0%, to { transform: none; }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes heartBeat {
+  0%  { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+.cd-card { animation: bounceIn 0.9s 0.15s both; }
+
+.day-tab.active { animation: tadaSoft 0.7s; }
+
+.day-tab.today { animation: pulse 2.4s ease-in-out infinite; }
+
+.tl-item.visible .tl-dot { animation: bounceIn 0.55s both; }
+
+.heart-beat {
+  display: inline-block;
+  color: var(--accent);
+  animation: heartBeat 1.8s ease-in-out infinite;
 }
 
 /* アニメーションを控えたい設定のユーザーには止める */

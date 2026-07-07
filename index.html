@@ -26,17 +26,25 @@
 
   <header class="hero" id="top">
     <div class="hero-floaters" aria-hidden="true">
-      <span style="--d:0s;   --x:8%;  color:#457B9D" data-icon="plane"></span>
-      <span style="--d:2.5s; --x:28%; color:#E63946" data-icon="camera"></span>
-      <span style="--d:1.2s; --x:48%; color:#F08C00" data-icon="ice-cream-cone"></span>
-      <span style="--d:3.8s; --x:68%; color:#2A9D8F" data-icon="mountain-snow"></span>
-      <span style="--d:0.8s; --x:86%; color:#9775FA" data-icon="beer"></span>
+      <span style="--d:0s;   --x:8%;  color:#2F6F8F" data-icon="plane"></span>
+      <span style="--d:2.5s; --x:28%; color:#B6423E" data-icon="camera"></span>
+      <span style="--d:1.2s; --x:48%; color:#A65A1F" data-icon="ice-cream-cone"></span>
+      <span style="--d:3.8s; --x:68%; color:#1F7A83" data-icon="mountain-snow"></span>
+      <span style="--d:0.8s; --x:86%; color:#6B5CA5" data-icon="beer"></span>
     </div>
     <p class="hero-eyebrow">ふたりの旅のしおり</p>
     <h1 class="hero-title" id="hero-title">北海道旅行 2026</h1>
     <p class="hero-sub" id="hero-sub"></p>
     <p class="hero-dates" id="hero-dates"></p>
     <div class="countdown" id="countdown"></div>
+    <div class="hero-waves" aria-hidden="true">
+      <svg class="wave wave-back" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path d="M0,44 C200,20 420,72 640,58 C860,44 1080,76 1280,60 C1360,54 1400,48 1440,52 L1440,90 L0,90 Z"/>
+      </svg>
+      <svg class="wave wave-front" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path d="M0,58 C180,86 360,40 540,52 C720,64 900,30 1080,44 C1260,58 1350,72 1440,60 L1440,90 L0,90 Z"/>
+      </svg>
+    </div>
   </header>
 
   <main>
@@ -61,7 +69,7 @@
   </main>
 
   <footer class="site-footer">
-    <p><span data-icon="luggage"></span> いってらっしゃい!すてきな旅になりますように <span data-icon="heart"></span></p>
+    <p><span data-icon="luggage"></span> いってらっしゃい!すてきな旅になりますように <span class="heart-beat" data-icon="heart"></span></p>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

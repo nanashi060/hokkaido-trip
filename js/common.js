@@ -1,10 +1,10 @@
 // カテゴリ定義 — 新カテゴリを増やすときはここに1行足すだけ(iconはjs/icons.jsの名前)
 export const CATEGORIES = {
-  food:        { label: "グルメ",   icon: "utensils",   color: "#FF6B6B", bg: "linear-gradient(135deg,#FFE3E3,#FFD8A8)" },
-  cafe:        { label: "カフェ",   icon: "coffee",     color: "#F08C00", bg: "linear-gradient(135deg,#FFF3BF,#FFE8CC)" },
-  sightseeing: { label: "観光",     icon: "camera",     color: "#339AF0", bg: "linear-gradient(135deg,#D0EBFF,#D3F9D8)" },
-  hotel:       { label: "宿",       icon: "bed-double", color: "#845EF7", bg: "linear-gradient(135deg,#E5DBFF,#FFDEEB)" },
-  transport:   { label: "移動拠点", icon: "car",        color: "#868E96", bg: "linear-gradient(135deg,#E9ECEF,#DEE2E6)" }
+  food:        { label: "グルメ",   icon: "utensils",   color: "#9A5C4F", bg: "linear-gradient(135deg,#F2D2C6,#9A5C4F)" },
+  cafe:        { label: "カフェ",   icon: "coffee",     color: "#806B4A", bg: "linear-gradient(135deg,#E9DCC4,#806B4A)" },
+  sightseeing: { label: "観光",     icon: "camera",     color: "#4E7482", bg: "linear-gradient(135deg,#D7EAF0,#4E7482)" },
+  hotel:       { label: "宿",       icon: "bed-double", color: "#6C6378", bg: "linear-gradient(135deg,#E3DDED,#6C6378)" },
+  transport:   { label: "移動拠点", icon: "car",        color: "#66716B", bg: "linear-gradient(135deg,#E3EAE5,#66716B)" }
 };
 
 export function categoryOf(spot) {
