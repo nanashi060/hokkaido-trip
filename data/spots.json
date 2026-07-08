@@ -325,7 +325,7 @@
       "lng": 141.3536,
       "photo": "images/jr-inn-sapporo-kita2jo.jpg",
       "catchcopy": "大浴場つき!札幌駅・大通どちらも徒歩圏のホテル",
-      "hours": "チェックイン 15:00 / チェックアウト 11:00",
+      "hours": "チェックイン 15:00 / チェックアウト 10:00",
       "budget": "",
       "memo": "宿泊 7/15〜(2泊)。チェックイン後、レンタカーを札幌白石店へ返却しに行く",
       "links": {
@@ -541,6 +541,22 @@
         "author": "Sorah Fukumori",
         "license": "CC BY 3.0",
         "url": "https://commons.wikimedia.org/wiki/File:Sapporo_Mt_Moiwa_Observation_(184517507).jpeg"
+      }
+    },
+    {
+      "id": "new-chitose-airport",
+      "name": "新千歳空港",
+      "category": "transport",
+      "area": "千歳",
+      "lat": 42.7752,
+      "lng": 141.6923,
+      "photo": "",
+      "catchcopy": "北海道旅の締めくくり、お土産と空港グルメの拠点",
+      "hours": "店舗により異なる",
+      "budget": "",
+      "memo": "7/17 16:30ごろ到着予定。きのとや、一幻はお腹次第で寄る",
+      "links": {
+        "official": "https://www.new-chitose-airport.jp/"
       }
     }
   ]

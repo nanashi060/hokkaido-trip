@@ -344,8 +344,72 @@
       "day": 5,
       "items": [
         {
+          "time": "8:00",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "朝ごはん・荷造り",
+          "note": "ホテルは食事なし。9:00までに荷造り"
+        },
+        {
+          "time": "9:00",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "忘れ物確認・チェックアウト準備",
+          "note": "部屋を出る前に最終確認(〜9:45)"
+        },
+        {
+          "time": "10:00まで",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "チェックアウト",
+          "note": "荷物をホテルに預ける予定"
+        },
+        {
+          "time": "11:00",
           "type": "tbd",
-          "note": "計画中 🚧 帰りの便に合わせて最終日の予定を決めよう!"
+          "note": "回転寿司で昼ごはん(〜12:30)。なごやか亭が暫定候補"
+        },
+        {
+          "time": "13:00",
+          "spotId": "sapporo-redbrick",
+          "label": "札幌駅周辺・赤れんが周辺を散策",
+          "note": "買い物・お土産タイム(〜14:30)"
+        },
+        {
+          "time": "14:30",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "ホテルへ戻り荷物を回収",
+          "note": "15:00頃までに出発できるように整える"
+        },
+        {
+          "time": "15:00",
+          "type": "move",
+          "method": "JR・快速エアポート",
+          "duration": "約40分",
+          "note": "札幌駅 → 新千歳空港。少し余裕を持って出発"
+        },
+        {
+          "time": "16:30ごろ",
+          "spotId": "new-chitose-airport",
+          "label": "新千歳空港に到着",
+          "note": "搭乗手続きまで余裕あり"
+        },
+        {
+          "time": "16:30",
+          "spotId": "new-chitose-airport",
+          "label": "お土産・軽食・搭乗手続き",
+          "note": "きのとや、一幻はお腹次第(〜18:30)"
+        },
+        {
+          "time": "19:20",
+          "type": "move",
+          "method": "飛行機",
+          "duration": "1時間45分",
+          "note": "新千歳空港 → 成田空港T3(スプリング・ジャパン IJ836便)"
+        },
+        {
+          "time": "21:05",
+          "type": "move",
+          "method": "飛行機",
+          "duration": "到着",
+          "note": "成田空港T3に到着。旅行終了"
         }
       ]
     }

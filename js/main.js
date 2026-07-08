@@ -19,7 +19,7 @@ async function loadJson(path) {
 }
 
 async function init() {
-  initIntro();
+  const introDone = initIntro();
   hydrateIcons();
   const [trip, spotsData, itinerary] = await Promise.all([
     loadJson("data/trip.json"),
@@ -39,6 +39,7 @@ async function init() {
   const mapApi = globalThis.L ? renderMap(state) : renderMapFallback();
   renderSpotCards(state, mapApi);
   initExperienceMotion();
+  initHashNavigation(introDone);
 }
 
 // 旅行中なら今日が Day 何日目かを返す(旅行前後は null)
@@ -161,6 +162,64 @@ function renderMapFallback() {
       document.getElementById("map-section")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
     }
   };
+}
+
+function initHashNavigation(introDone) {
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  const sync = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    revealHashTarget(target);
+    scrollToHashTarget(target);
+    revealHashTarget(target);
+  };
+
+  const syncSettledHash = () => {
+    sync();
+    setTimeout(sync, 120);
+    setTimeout(sync, 650);
+  };
+
+  introDone.then(syncSettledHash);
+  globalThis.addEventListener("hashchange", syncSettledHash, { passive: true });
+}
+
+function scrollToHashTarget(target) {
+  const navOffset = 84;
+  const top = target.getBoundingClientRect().top + globalThis.scrollY - navOffset;
+  globalThis.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+}
+
+function revealHashTarget(target) {
+  const page = target.closest(".travel-page");
+  page?.classList.add("page-in-view");
+
+  if (target.classList.contains("spot-card") || target.classList.contains("tl-item")) {
+    target.classList.add("visible");
+  }
+
+  if (target.classList.contains("spot-card") || target.id === "spots") {
+    showAllSpotCards();
+  }
+
+  if (target.id === "spots") {
+    target.querySelectorAll(".spot-card").forEach(card => card.classList.add("visible"));
+  }
+}
+
+function showAllSpotCards() {
+  const filters = document.getElementById("spot-filters");
+  document.querySelectorAll(".spot-card.hidden").forEach(card => card.classList.remove("hidden"));
+  filters?.querySelectorAll(".map-filter").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.cat === "all");
+  });
 }
 
 init().catch(err => {

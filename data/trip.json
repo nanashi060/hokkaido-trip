@@ -41,10 +41,11 @@
     {
       "day": 5,
       "date": "2026-07-17",
-      "area": "札幌 → 帰路(仮)",
+      "area": "札幌 → 新千歳 → 成田",
       "theme": "#6B5CA5",
-      "title": "計画中",
-      "tentative": true
+      "title": "札幌でお土産散策、夜便で成田へ",
+      "tentative": true,
+      "tentativeNote": "この日の予定は暫定です(回転寿司・空港グルメは当日調整)"
     }
   ]
 }

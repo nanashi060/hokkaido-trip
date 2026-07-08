@@ -8,24 +8,27 @@ const reduceMotion = () =>
 export function initIntro() {
   const intro = document.getElementById("intro");
   const root = document.documentElement;
-  if (!intro) return;
+  if (!intro) return Promise.resolve();
   if (!root.classList.contains("intro-play")) {
     intro.remove();
-    return;
+    return Promise.resolve();
   }
 
-  let finished = false;
-  const done = () => {
-    if (finished) return;
-    finished = true;
-    intro.remove();
-    root.classList.remove("intro-play");
-  };
+  return new Promise(resolve => {
+    let finished = false;
+    const done = () => {
+      if (finished) return;
+      finished = true;
+      intro.remove();
+      root.classList.remove("intro-play");
+      resolve();
+    };
 
-  intro.addEventListener("animationend", event => {
-    if (event.target === intro) done();
+    intro.addEventListener("animationend", event => {
+      if (event.target === intro) done();
+    });
+    setTimeout(done, 3000);
   });
-  setTimeout(done, 3000);
 }
 
 export function initExperienceMotion() {
