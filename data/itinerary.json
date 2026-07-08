@@ -156,11 +156,99 @@
           "time": "8:00",
           "spotId": "unwind-otaru",
           "label": "ホテルで朝食",
-          "note": "朝食つき"
+          "note": "ハイティースタイルの朝食をゆっくり(〜9:00)"
         },
         {
-          "type": "tbd",
-          "note": "ここから先は計画中 🚧 小樽・札幌の予定を追加しよう!"
+          "time": "9:00",
+          "spotId": "unwind-otaru",
+          "label": "荷造り・身支度",
+          "note": "車に荷物を積める状態にする"
+        },
+        {
+          "time": "10:15",
+          "spotId": "unwind-otaru",
+          "label": "チェックアウト",
+          "note": "11:00より少し早めに出発"
+        },
+        {
+          "time": "10:30",
+          "spotId": "kitaichi-glass",
+          "note": "三号館やショップを中心に見る(〜11:15)"
+        },
+        {
+          "time": "11:15",
+          "spotId": "otaru-orgel",
+          "label": "オルゴール堂周辺を散策・食べ歩き",
+          "note": "堺町通りで軽めのお昼(〜12:30)"
+        },
+        {
+          "time": "12:30",
+          "type": "move",
+          "method": "徒歩",
+          "duration": "約15分",
+          "note": "車に戻ってお土産・荷物を整理"
+        },
+        {
+          "time": "12:45",
+          "type": "move",
+          "method": "レンタカー",
+          "duration": "約90分",
+          "note": "小樽 → 札幌(渋滞を考えて少し余裕を見る)"
+        },
+        {
+          "time": "14:15",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "ホテル到着・駐車",
+          "note": "早く着いたら荷物を預けて待機(〜15:00)"
+        },
+        {
+          "time": "15:00",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "チェックイン・休憩",
+          "note": "荷物を置いて身支度(〜15:45)"
+        },
+        {
+          "time": "15:45",
+          "type": "move",
+          "method": "タクシー",
+          "duration": "約30分",
+          "note": "ホテル → サッポロビール博物館(車はホテルに置いて公共交通機関かタクシー)"
+        },
+        {
+          "time": "16:15",
+          "spotId": "sapporo-beer-museum",
+          "note": "館内見学・ショップ・軽く試飲(〜17:30)"
+        },
+        {
+          "time": "17:30",
+          "spotId": "sapporo-beer-garden",
+          "label": "サッポロビール園で夜ご飯",
+          "note": "ジンギスカンを本命に!(〜19:15)"
+        },
+        {
+          "time": "19:15",
+          "type": "move",
+          "method": "タクシー",
+          "duration": "約45分",
+          "note": "大通方面のパフェ店へ移動"
+        },
+        {
+          "time": "20:00",
+          "spotId": "sato-parfait",
+          "note": "締めパフェ!(〜21:00)"
+        },
+        {
+          "time": "21:00",
+          "type": "move",
+          "method": "徒歩",
+          "duration": "約30分",
+          "note": "ホテルへ戻る(徒歩またはタクシー)"
+        },
+        {
+          "time": "21:30",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "ホテルに帰着",
+          "note": "大浴場で1日の疲れを癒す♨️"
         }
       ]
     },

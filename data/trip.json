@@ -23,10 +23,11 @@
     {
       "day": 3,
       "date": "2026-07-15",
-      "area": "小樽・札幌(仮)",
+      "area": "小樽 → 札幌",
       "theme": "#1F7A83",
-      "title": "計画中",
-      "tentative": true
+      "title": "小樽さんぽから札幌へ!ジンギスカンと締めパフェの夜",
+      "tentative": true,
+      "tentativeNote": "この日の予定は暫定です(変わるかも)"
     },
     {
       "day": 4,

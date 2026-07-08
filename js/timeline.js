@@ -36,7 +36,7 @@ function selectDay(state, dayNum) {
   document.getElementById("day-header").innerHTML = `
     <span class="dh-area">${fmtDate(day.date)} ・ ${esc(day.area)}</span>
     <div class="dh-title">${esc(day.title)}</div>
-    ${day.tentative ? `<div class="dh-tentative">${icon("construction")} この日はまだ計画中です</div>` : ""}
+    ${day.tentative ? `<div class="dh-tentative">${icon("construction")} ${esc(day.tentativeNote || "この日はまだ計画中です")}</div>` : ""}
   `;
 
   const sched = state.itinerary.schedule.find(s => s.day === dayNum);
