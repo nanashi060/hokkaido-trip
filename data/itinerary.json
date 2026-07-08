@@ -256,8 +256,93 @@
       "day": 4,
       "items": [
         {
+          "time": "7:30",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "ホテルを出発",
+          "note": "レンタカー返却済みなので公共交通・タクシーで移動"
+        },
+        {
+          "time": "8:00",
+          "spotId": "donbei",
+          "note": "場外市場のさっぽろ朝市で海鮮丼(〜9:00)"
+        },
+        {
+          "time": "9:00",
+          "type": "move",
+          "method": "タクシー・地下鉄",
+          "duration": "約45分",
+          "note": "場外市場 → 北海道神宮"
+        },
+        {
+          "time": "9:45",
+          "spotId": "hokkaido-jingu",
+          "note": "参拝・境内をのんびり散策(〜10:45)"
+        },
+        {
+          "time": "10:45",
+          "type": "move",
+          "method": "地下鉄",
+          "duration": "約45分",
+          "note": "円山公園駅 → 札幌中心部へ"
+        },
+        {
+          "time": "11:30",
+          "spotId": "sapporo-redbrick",
+          "note": "赤れんが庁舎・時計台・大通公園あたりをぶらぶら(〜12:30)"
+        },
+        {
+          "time": "12:30",
           "type": "tbd",
-          "note": "計画中 🚧 札幌の予定を追加しよう!"
+          "note": "昼ごはん 🍜 ラーメンまたは軽めのカフェ(お店は当日きめる)"
+        },
+        {
+          "time": "13:45",
+          "spotId": "kinotoya",
+          "note": "スイーツ休憩 or 札幌駅周辺で買い物。お腹次第で省略OK(〜14:30)"
+        },
+        {
+          "time": "15:00",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "ホテルで休憩",
+          "note": "着替え・充電タイム"
+        },
+        {
+          "time": "16:45",
+          "type": "move",
+          "method": "タクシー・市電",
+          "duration": "約45分",
+          "note": "ホテル → もいわ山麓駅(ロープウェイ乗り場)"
+        },
+        {
+          "time": "17:30",
+          "spotId": "mt-moiwa",
+          "label": "藻岩山へ",
+          "note": "ロープウェイで景色を見ながら山頂へ"
+        },
+        {
+          "time": "18:30",
+          "spotId": "the-jewels",
+          "label": "THE JEWELSでディナー",
+          "note": "✅ 予約済み!山頂レストランで夜景ディナー"
+        },
+        {
+          "time": "食後",
+          "spotId": "mt-moiwa",
+          "label": "山頂展望台で夜景",
+          "note": "日本新三大夜景をゆっくり堪能"
+        },
+        {
+          "time": "21:30",
+          "type": "move",
+          "method": "タクシー",
+          "duration": "約30分",
+          "note": "藻岩山 → ホテルへ"
+        },
+        {
+          "time": "22:00",
+          "spotId": "jr-inn-sapporo-kita2jo",
+          "label": "ホテルに帰着",
+          "note": "翌日に備えて早めに休む"
         }
       ]
     },

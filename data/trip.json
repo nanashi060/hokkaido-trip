@@ -32,10 +32,11 @@
     {
       "day": 4,
       "date": "2026-07-16",
-      "area": "札幌(仮)",
+      "area": "札幌",
       "theme": "#A65A1F",
-      "title": "計画中",
-      "tentative": true
+      "title": "札幌満喫デー!朝市から藻岩山の夜景ディナーまで",
+      "tentative": true,
+      "tentativeNote": "この日の予定は暫定です(変わるかも)"
     },
     {
       "day": 5,

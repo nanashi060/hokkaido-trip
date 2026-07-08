@@ -399,6 +399,128 @@
         "license": "CC0",
         "url": "https://commons.wikimedia.org/wiki/File:Fruitparfait_01.jpg"
       }
+    },
+    {
+      "id": "donbei",
+      "name": "さっぽろ朝市 丼兵衛(場外市場)",
+      "category": "food",
+      "area": "札幌",
+      "lat": 43.0721,
+      "lng": 141.3222,
+      "photo": "images/donbei.jpg",
+      "catchcopy": "場外市場で朝から豪快海鮮丼",
+      "hours": "7:00〜14:30頃",
+      "budget": "〜3,000円",
+      "memo": "朝ごはんはここで海鮮丼!※暫定",
+      "links": {},
+      "photoCredit": {
+        "author": "海鮮ドン",
+        "license": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Kaisendon.jpg"
+      }
+    },
+    {
+      "id": "hokkaido-jingu",
+      "name": "北海道神宮",
+      "category": "sightseeing",
+      "area": "札幌",
+      "lat": 43.0545,
+      "lng": 141.3081,
+      "photo": "images/hokkaido-jingu.jpg",
+      "catchcopy": "円山の杜にたたずむ北海道総鎮守",
+      "hours": "6:00〜17:00頃(季節で変動)",
+      "budget": "無料",
+      "memo": "参拝と境内散策。円山公園の緑も気持ちいい ※暫定",
+      "links": {
+        "official": "https://www.hokkaidojingu.or.jp/"
+      },
+      "photoCredit": {
+        "author": "Daigaku2051",
+        "license": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Hokkaido_Jingu.JPG"
+      }
+    },
+    {
+      "id": "sapporo-redbrick",
+      "name": "赤れんが庁舎・時計台・大通公園",
+      "category": "sightseeing",
+      "area": "札幌",
+      "lat": 43.0626,
+      "lng": 141.351,
+      "photo": "images/sapporo-redbrick.jpg",
+      "catchcopy": "札幌中心部の定番スポットをぐるっと",
+      "hours": "散策自由",
+      "budget": "",
+      "memo": "赤れんが庁舎→時計台→大通公園の順にお散歩 ※暫定",
+      "links": {},
+      "photoCredit": {
+        "author": "663highland",
+        "license": "CC BY 2.5",
+        "url": "https://commons.wikimedia.org/wiki/File:Hokkaido_Prefectural_Office02s5s4272.jpg"
+      }
+    },
+    {
+      "id": "kinotoya",
+      "name": "きのとや(札幌駅周辺)",
+      "category": "cafe",
+      "area": "札幌",
+      "lat": 43.0676,
+      "lng": 141.3502,
+      "photo": "images/kinotoya.jpg",
+      "catchcopy": "札幌スイーツの名店でおやつ&お土産",
+      "hours": "10:00〜20:00頃(店舗による)",
+      "budget": "〜1,500円",
+      "memo": "大丸札幌店やKINOTOYA BAKEなど。お腹次第で省略OK",
+      "links": {
+        "official": "https://www.kinotoya.com/"
+      },
+      "photoCredit": {
+        "author": "禁樹なずな",
+        "license": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Kinotoya_main_office.JPG"
+      }
+    },
+    {
+      "id": "mt-moiwa",
+      "name": "藻岩山(もいわ山ロープウェイ)",
+      "category": "sightseeing",
+      "area": "札幌",
+      "lat": 43.0227,
+      "lng": 141.3218,
+      "photo": "images/mt-moiwa.jpg",
+      "catchcopy": "日本新三大夜景!札幌の街を一望",
+      "hours": "ロープウェイ 10:30〜22:00(上り最終21:30)",
+      "budget": "ロープウェイ+ミニケーブルカー往復 2,100円",
+      "memo": "夕方に上って景色→ディナー→夜景の流れ",
+      "links": {
+        "official": "https://mt-moiwa.jp/"
+      },
+      "photoCredit": {
+        "author": "Nikm",
+        "license": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Moiwa_Mountain_in_Sapporo_in_2009.jpg"
+      }
+    },
+    {
+      "id": "the-jewels",
+      "name": "THE JEWELS",
+      "category": "food",
+      "area": "札幌",
+      "lat": 43.0231,
+      "lng": 141.3212,
+      "photo": "images/the-jewels.jpg",
+      "catchcopy": "藻岩山山頂、夜景を望むレストラン",
+      "hours": "ディナー 17:00〜21:00頃",
+      "budget": "コース 8,000円前後",
+      "memo": "✅ 18:30予約済み!窓の外に札幌の夜景が広がる特等席",
+      "links": {
+        "official": "https://mt-moiwa.jp/floor-guide/the-jewels/"
+      },
+      "photoCredit": {
+        "author": "Sorah Fukumori",
+        "license": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sapporo_Mt_Moiwa_Observation_(184517507).jpeg"
+      }
     }
   ]
 }
