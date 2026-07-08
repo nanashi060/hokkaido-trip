@@ -159,16 +159,10 @@
           "note": "ハイティースタイルの朝食をゆっくり(〜9:00)"
         },
         {
-          "time": "9:00",
-          "spotId": "unwind-otaru",
-          "label": "荷造り・身支度",
-          "note": "車に荷物を積める状態にする"
-        },
-        {
           "time": "10:15",
           "spotId": "unwind-otaru",
           "label": "チェックアウト",
-          "note": "11:00より少し早めに出発"
+          "note": "荷物は車に積んで出発"
         },
         {
           "time": "10:30",
@@ -178,49 +172,49 @@
         {
           "time": "11:15",
           "spotId": "otaru-orgel",
-          "label": "オルゴール堂周辺を散策・食べ歩き",
-          "note": "堺町通りで軽めのお昼(〜12:30)"
-        },
-        {
-          "time": "12:30",
-          "type": "move",
-          "method": "徒歩",
-          "duration": "約15分",
-          "note": "車に戻ってお土産・荷物を整理"
+          "label": "オルゴール堂周辺・堺町通りを散策・食べ歩き",
+          "note": "お昼はお店に入らず、かまぼこやスイーツを少しずつ食べ歩き(〜12:30)"
         },
         {
           "time": "12:45",
           "type": "move",
           "method": "レンタカー",
-          "duration": "約90分",
+          "duration": "約105分",
           "note": "小樽 → 札幌(渋滞を考えて少し余裕を見る)"
         },
         {
-          "time": "14:15",
+          "time": "14:30",
           "spotId": "jr-inn-sapporo-kita2jo",
-          "label": "ホテル到着・駐車",
-          "note": "早く着いたら荷物を預けて待機(〜15:00)"
+          "label": "ホテル到着",
+          "note": "駐車して荷物をおろす"
         },
         {
           "time": "15:00",
           "spotId": "jr-inn-sapporo-kita2jo",
-          "label": "チェックイン・休憩",
-          "note": "荷物を置いて身支度(〜15:45)"
+          "label": "チェックイン",
+          "note": "荷物を置いてひと息(〜15:20)"
         },
         {
-          "time": "15:45",
+          "time": "15:20",
+          "type": "move",
+          "method": "レンタカー",
+          "duration": "約40分",
+          "note": "ホテル → レンタカー札幌白石店へ返却に出発"
+        },
+        {
+          "time": "16:00",
           "type": "move",
           "method": "タクシー",
-          "duration": "約30分",
-          "note": "ホテル → サッポロビール博物館(車はホテルに置いて公共交通機関かタクシー)"
+          "duration": "約40分",
+          "note": "札幌白石店でレンタカー返却 → サッポロビール博物館へ"
         },
         {
-          "time": "16:15",
+          "time": "16:40",
           "spotId": "sapporo-beer-museum",
           "note": "館内見学・ショップ・軽く試飲(〜17:30)"
         },
         {
-          "time": "17:30",
+          "time": "17:40",
           "spotId": "sapporo-beer-garden",
           "label": "サッポロビール園で夜ご飯",
           "note": "ジンギスカンを本命に!(〜19:15)"
@@ -229,23 +223,23 @@
           "time": "19:15",
           "type": "move",
           "method": "タクシー",
-          "duration": "約45分",
-          "note": "大通方面のパフェ店へ移動"
+          "duration": "約30分",
+          "note": "すすきの・大通方面のパフェ店へ移動"
         },
         {
-          "time": "20:00",
-          "spotId": "sato-parfait",
-          "note": "締めパフェ!(〜21:00)"
+          "time": "19:45",
+          "spotId": "sasaki-parfait",
+          "note": "締めパフェ!混んでたら「佐藤」に変更(〜20:45)"
         },
         {
-          "time": "21:00",
+          "time": "20:45",
           "type": "move",
           "method": "徒歩",
-          "duration": "約30分",
+          "duration": "約25分",
           "note": "ホテルへ戻る(徒歩またはタクシー)"
         },
         {
-          "time": "21:30",
+          "time": "21:15",
           "spotId": "jr-inn-sapporo-kita2jo",
           "label": "ホテルに帰着",
           "note": "大浴場で1日の疲れを癒す♨️"

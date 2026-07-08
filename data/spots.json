@@ -306,7 +306,7 @@
       "catchcopy": "メルヘン交差点のオルゴール堂と食べ歩きストリート",
       "hours": "9:00〜18:00頃",
       "budget": "",
-      "memo": "堺町通りをぶらぶら散策しながら食べ歩き。軽めのお昼もここで",
+      "memo": "お昼はお店に入らず、かまぼこやスイーツを少しずつ食べ歩きで",
       "links": {
         "official": "https://www.otaru-orgel.co.jp/"
       },
@@ -327,7 +327,7 @@
       "catchcopy": "大浴場つき!札幌駅・大通どちらも徒歩圏のホテル",
       "hours": "チェックイン 15:00 / チェックアウト 11:00",
       "budget": "",
-      "memo": "宿泊 7/15〜。レンタカーはホテル駐車場へ。早く着いたら荷物だけ預ける",
+      "memo": "宿泊 7/15〜(2泊)。チェックイン後、レンタカーを札幌白石店へ返却しに行く",
       "links": {
         "official": "https://www.jr-inn.jp/sapporo_n2/"
       },
@@ -387,10 +387,10 @@
       "lat": 43.0576,
       "lng": 141.3563,
       "photo": "images/sato-parfait.jpg",
-      "catchcopy": "札幌名物・締めパフェの本命店",
+      "catchcopy": "札幌・締めパフェの人気店",
       "hours": "18:00〜24:00頃",
       "budget": "〜2,000円",
-      "memo": "夜だけ営業のパフェ専門店。行列必至なので時間に余裕を持って",
+      "memo": "「佐々木」が混んでいたときの第二候補。こちらも行列必至",
       "links": {
         "official": "https://pf-sato.com/"
       },
@@ -398,6 +398,27 @@
         "author": "Endou subaru",
         "license": "CC0",
         "url": "https://commons.wikimedia.org/wiki/File:Fruitparfait_01.jpg"
+      }
+    },
+    {
+      "id": "sasaki-parfait",
+      "name": "パフェ、珈琲、酒、佐々木",
+      "category": "cafe",
+      "area": "札幌",
+      "lat": 43.0553,
+      "lng": 141.3568,
+      "photo": "images/sasaki-parfait.jpg",
+      "catchcopy": "締めパフェの第一候補!「佐藤」の姉妹店",
+      "hours": "18:00〜24:00頃",
+      "budget": "〜2,000円",
+      "memo": "締めパフェはまずここへ。混んでいたら「佐藤」に変更!",
+      "links": {
+        "official": "https://pf-sato.com/"
+      },
+      "photoCredit": {
+        "author": "先従隗始",
+        "license": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Chocolate_Parfait_20230717.jpg"
       }
     },
     {
