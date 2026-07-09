@@ -544,6 +544,20 @@
       }
     },
     {
+      "id": "nagoyakatei-sapporo",
+      "name": "なごやか亭(札幌市内)",
+      "category": "food",
+      "area": "札幌",
+      "lat": 43.0621,
+      "lng": 141.3544,
+      "photo": "",
+      "catchcopy": "最終日の昼ごはんは回転寿司で確定",
+      "hours": "店舗により異なる",
+      "budget": "〜3,000円",
+      "memo": "7/17 11:00〜12:30の昼ごはん。支店は当日動きやすい店舗を選ぶ",
+      "links": {}
+    },
+    {
       "id": "new-chitose-airport",
       "name": "新千歳空港",
       "category": "transport",

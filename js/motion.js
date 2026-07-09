@@ -33,12 +33,8 @@ export function initIntro() {
 
 export function initExperienceMotion() {
   document.body.classList.add("motion-ready");
-  seedRevealMotion();
   initBookmarkPages();
   initSkyCanvas();
-  initHeroParallax();
-  initTiltCards();
-  initMagneticControls();
   initDayBursts();
   initSpotFocusMotion();
   initShimaenaga();
