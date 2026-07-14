@@ -15,7 +15,7 @@ export function categoryOf(spot) {
 export function transportIcon(method = "") {
   if (method.includes("飛行機")) return "plane";
   if (method.includes("タクシー")) return "car-taxi-front";
-  if (/JR|電車|列車|新幹線/.test(method)) return "train-front";
+  if (/JR|電車|列車|新幹線|地下鉄|市電|バス/.test(method)) return "train-front";
   if (method.includes("徒歩")) return "footprints";
   if (/フェリー|船/.test(method)) return "ship";
   return "car";
