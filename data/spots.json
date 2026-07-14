@@ -512,7 +512,7 @@
       "catchcopy": "日本新三大夜景!札幌の街を一望",
       "hours": "ロープウェイ 10:30〜22:00(上り最終21:30)",
       "budget": "ロープウェイ+ミニケーブルカー往復 2,100円",
-      "memo": "夕方に上って景色→ディナー→夜景の流れ",
+      "memo": "夕方に上って、夕暮れから夜景へ変わる景色を楽しむ",
       "links": {
         "official": "https://mt-moiwa.jp/"
       },
@@ -520,27 +520,6 @@
         "author": "Nikm",
         "license": "Public domain",
         "url": "https://commons.wikimedia.org/wiki/File:Moiwa_Mountain_in_Sapporo_in_2009.jpg"
-      }
-    },
-    {
-      "id": "the-jewels",
-      "name": "THE JEWELS",
-      "category": "food",
-      "area": "札幌",
-      "lat": 43.0231,
-      "lng": 141.3212,
-      "photo": "images/the-jewels.jpg",
-      "catchcopy": "藻岩山山頂、夜景を望むレストラン",
-      "hours": "ディナー 17:00〜21:00頃",
-      "budget": "コース 8,000円前後",
-      "memo": "✅ 18:30予約済み!窓の外に札幌の夜景が広がる特等席",
-      "links": {
-        "official": "https://mt-moiwa.jp/floor-guide/the-jewels/"
-      },
-      "photoCredit": {
-        "author": "Sorah Fukumori",
-        "license": "CC BY 3.0",
-        "url": "https://commons.wikimedia.org/wiki/File:Sapporo_Mt_Moiwa_Observation_(184517507).jpeg"
       }
     },
     {

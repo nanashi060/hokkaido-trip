@@ -118,7 +118,9 @@ function renderHero(state) {
     }
     if (now >= start) {
       const day = Math.floor((now - start) / 86400000) + 1;
-      el.innerHTML = `<div class="cd-message">${icon("sparkles")} 旅行中。今日は Day ${day}</div>`;
+      const dayInfo = state.trip.days.find(item => item.day === day);
+      const message = dayInfo?.message || "今日も旅を楽しもう!";
+      el.innerHTML = `<div class="cd-message">${icon("sparkles")} Day ${day}｜${esc(message)}</div>`;
       return;
     }
 
